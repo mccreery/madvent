@@ -1,9 +1,13 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
-public class HandbellRing : MonoBehaviour {
-  public void OnMouseDown() {
+public class HandbellRinger : MonoBehaviour {
+  public void Ring() {
     var audioSource = GetComponent<AudioSource>();
     audioSource.Play();
+  }
+
+  void OnMouseDown() {
+    Ring();
   }
 }
