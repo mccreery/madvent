@@ -34,6 +34,6 @@ public class Target : MonoBehaviour
     private void Update()
     {
         Quaternion modelTarget = hit ? Quaternion.Euler(this.hitRotation) : Quaternion.identity;
-        targetModel.transform.rotation = Quaternion.RotateTowards(targetModel.transform.rotation, modelTarget, rotationSpeed * Time.deltaTime);
+        targetModel.transform.localRotation = Quaternion.RotateTowards(targetModel.transform.localRotation, modelTarget, rotationSpeed * Time.deltaTime);
     }
 }
