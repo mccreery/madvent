@@ -17,7 +17,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &6047548109199288443
 Transform:
@@ -228,10 +228,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: Clapper
       objectReference: {fileID: 0}
+    - target: {fileID: -4682861196437156110, guid: 2ff459635c169ff45a279b6963c6f90b,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 2ff459635c169ff45a279b6963c6f90b,
         type: 3}
       propertyPath: m_Name
       value: Handbell Model
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2ff459635c169ff45a279b6963c6f90b,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 8204215276110374429, guid: 2ff459635c169ff45a279b6963c6f90b,
         type: 3}
