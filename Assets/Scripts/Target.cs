@@ -12,11 +12,14 @@ public class Target : MonoBehaviour
 
     private bool hit = false;
 
+    public Scoreboard scoreboard;
+
     private void OnTriggerEnter(Collider other)
     {
         if (!hit && other.gameObject.CompareTag(snowballTag))
         {
             hit = true;
+            ++scoreboard.Score;
             Destroy(other.gameObject);
             StartCoroutine(recoverTarget());
         }
