@@ -1,6 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using System;
+using System.IO;
+
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 public class CookieDraw : MonoBehaviour
 {
@@ -107,8 +111,18 @@ public class CookieDraw : MonoBehaviour
         texture2d.SetPixels(minX, minY, maxX - minX + 1, maxY - minY + 1, pixels);
     }
 
+#if UNITY_EDITOR
+
     private void OnGUI()
     {
         GUI.DrawTexture(new Rect(0, 0, 512, 512), texture);
+        
+        if (GUI.Button(new Rect(0, 20, 100, 20), "Save Design"))
+        {
+            string filename = EditorUtility.SaveFilePanel("Save Design", Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "design", "png");
+            File.WriteAllBytes(filename, texture.EncodeToPNG());
+        }
     }
+
+#endif
 }
