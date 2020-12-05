@@ -1090,6 +1090,7 @@ MonoBehaviour:
   pitchIncrease: 10
   startDistance: -5
   fireSound: {fileID: 0}
+  spin: {x: 30, y: 0, z: 0}
 --- !u!1 &2107168987
 GameObject:
   m_ObjectHideFlags: 0

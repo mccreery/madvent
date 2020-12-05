@@ -20,6 +20,9 @@ public class Fire : MonoBehaviour
     [SerializeField]
     private AudioClip fireSound = null;
 
+    [SerializeField]
+    private Vector3 spin;
+
     private new Camera camera;
     private AudioSource source;
     private void Start()
@@ -53,7 +56,10 @@ public class Fire : MonoBehaviour
         ray.direction = Quaternion.AngleAxis(pitchIncrease, Vector3.left) * ray.direction;
 
         GameObject spawned = Instantiate(prefab, ray.GetPoint(startDistance), Random.rotation);
-        spawned.GetComponent<Rigidbody>().AddForce(ray.direction * force);
+        Rigidbody rigidbody = spawned.GetComponent<Rigidbody>();
+        rigidbody.AddForce(ray.direction * force);
+        rigidbody.AddTorque(spin, ForceMode.Impulse);
+
         return spawned;
     }
 }
