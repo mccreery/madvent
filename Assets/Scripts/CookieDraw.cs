@@ -12,7 +12,9 @@ public class CookieDraw : MonoBehaviour
     public Material penMaterial;
     private Texture2D texture;
 
-    public float penRadius = 10;
+    public float penRadius = 4;
+
+    public int maskSize = 128;
 
     private void Start()
     {
@@ -23,7 +25,7 @@ public class CookieDraw : MonoBehaviour
 
         var overlayMaterial = new Material(penMaterial);
 
-        texture = new Texture2D(1024, 1024, TextureFormat.RGBA32, false);
+        texture = new Texture2D(maskSize, maskSize, TextureFormat.RGBA32, false);
 
         Color32 transparent = new Color32(255, 0, 0, 0);
         Color32[] fill = new Color32[texture.width * texture.height];
@@ -93,14 +95,20 @@ public class CookieDraw : MonoBehaviour
                 float dy = y - center.y;
                 float distanceSq = dx * dx + dy * dy;
 
-                if (distanceSq < radiusSq)
-                {
-                    pixels[i] = color;
-                }
+                float f = 1 - Mathf.Sqrt(distanceSq) / (2 * radius);
+                f = Math.Max(f, pixels[i].a);
+
+                pixels[i] = new Color(1, 0, 0, f);
+
                 i++;
             }
         }
 
         texture2d.SetPixels(minX, minY, maxX - minX + 1, maxY - minY + 1, pixels);
+    }
+
+    private void OnGUI()
+    {
+        GUI.DrawTexture(new Rect(0, 0, 512, 512), texture);
     }
 }
