@@ -14,7 +14,9 @@ public class CookieDraw : MonoBehaviour
     public new Camera camera;
 
     public Material penMaterial;
-    private Texture2D texture;
+
+    [HideInInspector]
+    public Texture2D texture;
 
     public float penRadius = 4;
 
