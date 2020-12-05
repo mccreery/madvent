@@ -7,14 +7,14 @@ public class Target : MonoBehaviour
     public float recoveryTime = 3.0f;
 
     public GameObject targetModel;
-    public Quaternion hitRotation;
+    public Vector3 hitRotation;
     public float rotationSpeed = 90f;
 
     private bool hit = false;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == snowballTag)
+        if (!hit && other.gameObject.CompareTag(snowballTag))
         {
             hit = true;
             Destroy(other.gameObject);
@@ -30,17 +30,7 @@ public class Target : MonoBehaviour
 
     private void Update()
     {
-        Quaternion modelRotation;
-
-        if (hit)
-        {
-            modelRotation = Quaternion.RotateTowards(targetModel.transform.rotation, hitRotation, rotationSpeed);
-        }
-        else
-        {
-            modelRotation = Quaternion.RotateTowards(hitRotation, targetModel.transform.rotation, rotationSpeed);
-        }
-
-        targetModel.transform.rotation = modelRotation;
+        Quaternion modelTarget = hit ? Quaternion.Euler(this.hitRotation) : Quaternion.identity;
+        targetModel.transform.rotation = Quaternion.RotateTowards(targetModel.transform.rotation, modelTarget, rotationSpeed * Time.deltaTime);
     }
 }

@@ -12,6 +12,9 @@ public class Fire : MonoBehaviour
     private float force = 1000;
 
     [SerializeField]
+    private float pitchIncrease = 20;
+
+    [SerializeField]
     private float startDistance = -5;
 
     [SerializeField]
@@ -47,6 +50,7 @@ public class Fire : MonoBehaviour
     private GameObject Spawn(GameObject prefab, float force)
     {
         Ray ray = camera.ScreenPointToRay(Input.mousePosition);
+        ray.direction = Quaternion.AngleAxis(pitchIncrease, Vector3.left) * ray.direction;
 
         GameObject spawned = Instantiate(prefab, ray.GetPoint(startDistance), Random.rotation);
         spawned.GetComponent<Rigidbody>().AddForce(ray.direction * force);
