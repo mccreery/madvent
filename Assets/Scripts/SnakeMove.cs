@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class SnakeMove : MonoBehaviour
 {
-	public Transform firstReindeer;
+	public List<Transform> reindeerTrail = new List<Transform>();
 
     public float interval;
     public float stepSize;
@@ -14,6 +14,16 @@ public class SnakeMove : MonoBehaviour
 
     Vector2 moveDirection = Vector2.right;
 
+    private Transform firstReindeer;
+
+    private Quaternion previousEndRotation;
+    private Vector3 previousEndPosition;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        firstReindeer = reindeerTrail[0];
+    }
 
     // Update is called once per frame
     void Update()
@@ -55,8 +65,26 @@ public class SnakeMove : MonoBehaviour
 
     void Move()
     {
+        previousEndRotation = reindeerTrail[reindeerTrail.Count - 1].rotation;
+        previousEndPosition = reindeerTrail[reindeerTrail.Count - 1].position;
+
+        for (int i = reindeerTrail.Count - 1; i >= 1; i--)
+        {
+            var reindeer = reindeerTrail[i];
+            var nextReindeer = reindeerTrail[i - 1];
+            reindeer.rotation = nextReindeer.rotation;
+            reindeer.position = nextReindeer.position;
+        }
+
         firstReindeer.right = moveDirection;
         firstReindeer.position += firstReindeer.right * stepSize;
+    }
+
+    public void AddTail(Transform reindeer)
+    {
+        reindeer.rotation = previousEndRotation;
+        reindeer.position = previousEndPosition;
+        reindeerTrail.Add(reindeer);
     }
 
     public void Die()
