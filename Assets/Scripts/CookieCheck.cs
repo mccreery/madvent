@@ -20,8 +20,15 @@ public class CookieCheck : MonoBehaviour
 
         for (int i = 0; i < drawingPixels.Length; i++)
         {
-            float error = Mathf.Abs(drawingPixels[i].a - targetPixels[i].a);
-            totalErrorSq += error * error;
+            float maxComponentError = 0;
+
+            for (int j = 0; j < 4; j++)
+            {
+                float error = Mathf.Abs(drawingPixels[i][j] - targetPixels[i][j]);
+                maxComponentError = Mathf.Max(maxComponentError, error);
+            }
+
+            totalErrorSq += maxComponentError * maxComponentError;
         }
 
         float score = 1 - totalErrorSq / (maxError * drawingPixels.Length);
