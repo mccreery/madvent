@@ -67,7 +67,7 @@ public class CardManager : MonoBehaviour
         yield return new WaitUntil(() => b.FlipFinished);
         yield return new WaitForSeconds(0.5f);
 
-        a.Flip();
-        b.Flip();
+        a.Reset();
+        b.Reset();
     }
 }

@@ -34,11 +34,13 @@ public class Card : MonoBehaviour
 
     public void Flip()
     {
-        flipped = !flipped;
-        if (flipped)
-        {
-            cardManager.OnCardFlipped(this);
-        }
+        flipped = true;
+        cardManager.OnCardFlipped(this);
+    }
+
+    public void Reset()
+    {
+        flipped = false;
     }
 
     public bool FlipFinished => FlipAngle > 179;
