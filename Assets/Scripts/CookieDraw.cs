@@ -56,11 +56,11 @@ public class CookieDraw : MonoBehaviour
         float distance = (cursorHeight - ray.origin.y) / ray.direction.y;
         Vector3 cursorTarget = ray.GetPoint(distance);
 
-        if (Input.GetMouseButton(0) && Physics.Raycast(ray, out RaycastHit hit) && hit.transform == uvSource.transform
+        if ((Input.GetMouseButton(0) || Input.GetMouseButton(1)) && Physics.Raycast(ray, out RaycastHit hit) && hit.transform == uvSource.transform
             && hit.textureCoord is Vector2 uv)
         {
             cursorTarget = hit.point;
-            DrawCircle(texture, uv * new Vector2(texture.width, texture.height), penRadius, Color.red);
+            DrawCircle(texture, uv * new Vector2(texture.width, texture.height), penRadius, Input.GetMouseButton(0) ? Color.red : Color.green);
             texture.Apply();
         }
 
@@ -86,7 +86,8 @@ public class CookieDraw : MonoBehaviour
 
         Color[] pixels = texture2d.GetPixels(minX, minY, maxX - minX + 1, maxY - minY + 1);
 
-        float radiusSq = radius * radius;
+        float colorBleed = 1;
+        float radiusSq = (radius + colorBleed) * (radius + colorBleed);
 
         int i = 0;
         for (int y = minY; y <= maxY; y++)
@@ -100,7 +101,18 @@ public class CookieDraw : MonoBehaviour
                 float f = 1 - Mathf.Sqrt(distanceSq) / (2 * radius);
                 f = Math.Max(f, pixels[i].a);
 
-                pixels[i] = new Color(1, 0, 0, f);
+                Color pixelColor;
+                if (distanceSq <= radiusSq)
+                {
+                    pixelColor = color;
+                }
+                else
+                {
+                    pixelColor = pixels[i];
+                }
+
+                pixelColor.a = f;
+                pixels[i] = pixelColor;
 
                 i++;
             }
