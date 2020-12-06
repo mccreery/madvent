@@ -4,21 +4,20 @@ using UnityEngine;
 
 public class Sprout : MonoBehaviour
 {
-    public Vector2Int boardMinXY;
-    public Vector2Int boardMaxXY;
     public SnakeMove snakeMove;
 
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("MoveSprout", 0, 2);
+        InvokeRepeating("MoveSprout", 0, 3);
     }
 
     void MoveSprout()
     {
-        float sproutx = Random.Range(boardMinXY.x, boardMaxXY.x);
-        float sprouty = Random.Range(boardMinXY.y, boardMaxXY.y);
-
-        transform.position = new Vector2(sproutx, sprouty);
+        do
+        {
+            transform.position = snakeMove.RandomPosition();
+        }
+        while (Vector3.Distance(snakeMove.FirstReindeer.transform.position, transform.position) <1.5);
     }
 }

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - snowball
   - pickup
+  - sprout
   layers:
   - Default
   - TransparentFX

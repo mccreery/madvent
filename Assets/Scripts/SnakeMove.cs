@@ -7,6 +7,9 @@ public class SnakeMove : MonoBehaviour
 {
 	public List<Transform> reindeerTrail = new List<Transform>();
 
+    public Vector2Int boardMinXY;
+    public Vector2Int boardMaxXY;
+
     public float interval;
     public float stepSize;
     [HideInInspector]
@@ -17,12 +20,13 @@ public class SnakeMove : MonoBehaviour
     Vector2 moveDirection = Vector2.right;
 
     private Transform firstReindeer;
+    public Transform FirstReindeer => firstReindeer;
 
     private Quaternion previousEndRotation;
     private Vector3 previousEndPosition;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         firstReindeer = reindeerTrail[0];
     }
@@ -30,6 +34,7 @@ public class SnakeMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Win();
         Control();
         if (timeSinceLastStep >= interval)
         {
@@ -80,6 +85,16 @@ public class SnakeMove : MonoBehaviour
 
         firstReindeer.right = moveDirection;
         firstReindeer.position += firstReindeer.right * stepSize;
+
+        if (firstReindeer.position.x > boardMaxXY.x  || firstReindeer.position.y > boardMaxXY.y)
+        {
+            Die();
+        }
+
+        else if (firstReindeer.position.x < boardMinXY.x || firstReindeer.position.y < boardMinXY.y)
+        {
+            Die();
+        }
     }
 
     public void AddTail(Transform reindeer)
@@ -89,8 +104,29 @@ public class SnakeMove : MonoBehaviour
         reindeerTrail.Add(reindeer);
     }
 
+    public void IncreaseSpeed()
+    {
+        interval = interval - 0.04f;
+    }
+
+    public Vector2 RandomPosition()
+    {
+        float x = Random.Range(boardMinXY.x, boardMaxXY.x) + 0.5f;
+        float y = Random.Range(boardMinXY.y, boardMaxXY.y) + 0.5f;
+
+        return new Vector2(x, y);
+    }
+
     public void Die()
     {
         SceneManager.LoadScene(0);
+    }
+
+    public void Win()
+    {
+        if (reindeerTrail.Count == 10)
+        {
+            SceneManager.LoadScene(0);
+        }
     }
 }
