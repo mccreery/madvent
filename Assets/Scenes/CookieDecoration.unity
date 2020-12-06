@@ -190,6 +190,7 @@ MonoBehaviour:
   cookieDraw: {fileID: 498159981}
   cursor: {fileID: 1626132975}
   color: {r: 1, g: 1, b: 1, a: 0}
+  highlightOffset: {x: 0, y: 0, z: -0.2}
 --- !u!1001 &644528353
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -812,6 +813,7 @@ MonoBehaviour:
   cookieDraw: {fileID: 498159981}
   cursor: {fileID: 919132147515049587}
   color: {r: 1, g: 0, b: 0, a: 0}
+  highlightOffset: {x: 0, y: 0, z: -0.2}
 --- !u!1 &1559105325
 GameObject:
   m_ObjectHideFlags: 0
@@ -861,6 +863,7 @@ MonoBehaviour:
   cookieDraw: {fileID: 0}
   cursor: {fileID: 0}
   color: {r: 0, g: 0, b: 0, a: 0}
+  highlightOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &1561142850 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5233348590349596532, guid: b05c4e8f19aa0754a8f1d976bc9fa868,
@@ -882,6 +885,7 @@ MonoBehaviour:
   cookieDraw: {fileID: 498159981}
   cursor: {fileID: 1926367460}
   color: {r: 0.052364707, g: 1, b: 0, a: 0}
+  highlightOffset: {x: 0, y: 0, z: -0.2}
 --- !u!1001 &1626132973
 PrefabInstance:
   m_ObjectHideFlags: 0
