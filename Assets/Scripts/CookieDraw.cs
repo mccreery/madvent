@@ -22,6 +22,9 @@ public class CookieDraw : MonoBehaviour
 
     public int maskSize = 128;
 
+    public GameObject cursor;
+    public float cursorHeight;
+
     private void Start()
     {
         if (camera == null)
@@ -44,33 +47,26 @@ public class CookieDraw : MonoBehaviour
         overlay.material = overlayMaterial;
     }
 
+    Vector3 cursorVelocity;
+
     private void Update()
-    {
-        if (Input.GetMouseButton(0))
-        {
-            Vector2? uvNullable = GetUVAtCursor();
-
-            if (uvNullable is Vector2 uv)
-            {
-                //texture.SetPixel((int)(uv.x * texture.width), (int)(uv.y * texture.height), new Color(1, 0, 0, 1));
-
-                DrawCircle(texture, uv * new Vector2(texture.width, texture.height), penRadius, Color.red);
-                texture.Apply();
-            }
-        }
-    }
-
-    private Vector2? GetUVAtCursor()
     {
         Ray ray = camera.ScreenPointToRay(Input.mousePosition);
 
-        if (Physics.Raycast(ray, out RaycastHit hit) && hit.transform == uvSource.transform)
+        float distance = (cursorHeight - ray.origin.y) / ray.direction.y;
+        Vector3 cursorTarget = ray.GetPoint(distance);
+
+        if (Input.GetMouseButton(0) && Physics.Raycast(ray, out RaycastHit hit) && hit.transform == uvSource.transform
+            && hit.textureCoord is Vector2 uv)
         {
-            return hit.textureCoord;
+            cursorTarget = hit.point;
+            DrawCircle(texture, uv * new Vector2(texture.width, texture.height), penRadius, Color.red);
+            texture.Apply();
         }
-        else
+
+        if (cursor != null)
         {
-            return null;
+            cursor.transform.position = Vector3.SmoothDamp(cursor.transform.position, cursorTarget, ref cursorVelocity, 0.1f);
         }
     }
 
