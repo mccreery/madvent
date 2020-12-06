@@ -22,7 +22,7 @@ public class CookieDraw : MonoBehaviour
 
     public int maskSize = 128;
 
-    public GameObject cursor;
+    public Transform cursor;
     public float cursorHeight;
 
     public Color currentColor;
@@ -58,17 +58,17 @@ public class CookieDraw : MonoBehaviour
         float distance = (cursorHeight - ray.origin.y) / ray.direction.y;
         Vector3 cursorTarget = ray.GetPoint(distance);
 
-        if ((Input.GetMouseButton(0) || Input.GetMouseButton(1)) && Physics.Raycast(ray, out RaycastHit hit) && hit.transform == uvSource.transform
+        if (Input.GetMouseButton(0) && Physics.Raycast(ray, out RaycastHit hit) && hit.transform == uvSource.transform
             && hit.textureCoord is Vector2 uv)
         {
             cursorTarget = hit.point;
-            DrawCircle(texture, uv * new Vector2(texture.width, texture.height), penRadius, Input.GetMouseButton(0) ? Color.red : Color.green);
+            DrawCircle(texture, uv * new Vector2(texture.width, texture.height), penRadius, currentColor);
             texture.Apply();
         }
 
         if (cursor != null)
         {
-            cursor.transform.position = Vector3.SmoothDamp(cursor.transform.position, cursorTarget, ref cursorVelocity, 0.1f);
+            cursor.position = Vector3.SmoothDamp(cursor.position, cursorTarget, ref cursorVelocity, 0.1f);
         }
     }
 
