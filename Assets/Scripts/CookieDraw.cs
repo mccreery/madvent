@@ -25,6 +25,8 @@ public class CookieDraw : MonoBehaviour
     public GameObject cursor;
     public float cursorHeight;
 
+    public Color currentColor;
+
     private void Start()
     {
         if (camera == null)
@@ -125,7 +127,7 @@ public class CookieDraw : MonoBehaviour
 
     private void OnGUI()
     {
-        GUI.DrawTexture(new Rect(0, 0, 512, 512), texture);
+        //GUI.DrawTexture(new Rect(0, 0, 512, 512), texture);
         
         if (GUI.Button(new Rect(0, 20, 100, 20), "Save Design"))
         {
