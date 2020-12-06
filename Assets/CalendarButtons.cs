@@ -40,17 +40,16 @@ public class CalendarButtons : MonoBehaviour
         }
     }
 
-    // TY https://stackoverflow.com/questions/273313/randomize-a-listt
     public static void Shuffle<T>(IList<T> list)
     {
-        int n = list.Count;
-        while (n > 1)
-        {
-            n--;
-            int k = Random.Range(0, n + 1);
-            T value = list[k];
-            list[k] = list[n];
-            list[n] = value;
-        }
+        for (var i = list.Count; i > 0; i--)
+            Swap(list, 0, Random.Range(0, i));
+    }
+
+    public static void Swap<T>(IList<T> list, int i, int j)
+    {
+        var temp = list[i];
+        list[i] = list[j];
+        list[j] = temp;
     }
 }
