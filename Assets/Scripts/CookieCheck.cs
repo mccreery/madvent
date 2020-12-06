@@ -5,8 +5,9 @@ public class CookieCheck : MonoBehaviour
     public CookieDraw draw;
     public Texture2D target;
 
-    public float drawableRegion = 0.25f;
-    public float minScore = 0.6f;
+    // Proportion of full error pixels corresponding to 0% score
+    [Range(0, 1)]
+    public float maxError = 0.25f;
 
     public float CalculateScore()
     {
@@ -15,23 +16,16 @@ public class CookieCheck : MonoBehaviour
         Color[] drawingPixels = drawing.GetPixels();
         Color[] targetPixels = target.GetPixels();
 
-        float totalDifference = 0;
-
-        float totalTarget = 0;
+        float totalErrorSq = 0;
 
         for (int i = 0; i < drawingPixels.Length; i++)
         {
-            totalDifference += Mathf.Pow(Mathf.Abs(drawingPixels[i].a - targetPixels[i].a), 2);
-            totalTarget += targetPixels[i].a * targetPixels[i].a;
+            float error = Mathf.Abs(drawingPixels[i].a - targetPixels[i].a);
+            totalErrorSq += error * error;
         }
 
-        GUI.Label(new Rect(0, 200, 100, 100), (totalTarget / drawingPixels.Length).ToString());
-
-        float drawableRegion = totalTarget / drawingPixels.Length;
-
-        float unscaled = 1 - totalDifference / (drawableRegion * drawingPixels.Length);
-        return unscaled;
-        //return Mathf.Clamp01(Mathf.InverseLerp(minScore, 1, unscaled));
+        float score = 1 - totalErrorSq / (maxError * drawingPixels.Length);
+        return Mathf.Clamp01(score);
     }
 
 #if UNITY_EDITOR

@@ -647,8 +647,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   draw: {fileID: 498159981}
   target: {fileID: 2800000, guid: 20460609a2354be4a93f5a74f462430a, type: 3}
-  drawableRegion: 0.02
-  minScore: 0
+  maxError: 0.04
 --- !u!1001 &7403964660338352912
 PrefabInstance:
   m_ObjectHideFlags: 0
