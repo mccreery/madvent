@@ -46,10 +46,15 @@ public class BellSequencer : MonoBehaviour {
       GameObject.Find("Bell Scoreboard").GetComponent<Scoreboard>().Score++;
       CreateNewSequence(1.5f);
 
-            gameManager.score++;
-            SceneManager.LoadScene(1);
+            InvokeRepeating("WinReload", 1, 0);
         }
   }
+
+    void WinReload()
+    {
+        gameManager.score++;
+        SceneManager.LoadScene(1);
+    }
 
     public GameManager gameManager;
 
