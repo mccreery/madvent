@@ -123,18 +123,33 @@ public class CookieDraw : MonoBehaviour
         texture2d.SetPixels(minX, minY, maxX - minX + 1, maxY - minY + 1, pixels);
     }
 
-#if UNITY_EDITOR
 
+#if UNITY_EDITOR
     private void OnGUI()
     {
-        //GUI.DrawTexture(new Rect(0, 0, 512, 512), texture);
-        
+        GUI.DrawTexture(new Rect(0, 0, 512, 512), texture);
+
+        Ray ray = camera.ScreenPointToRay(Input.mousePosition);
+
+        float distance = (cursorHeight - ray.origin.y) / ray.direction.y;
+        Vector3 cursorTarget = ray.GetPoint(distance);
+
+        if (/*Input.GetMouseButton(0) && */Physics.Raycast(ray, out RaycastHit hit) && hit.transform == uvSource.transform
+            && hit.textureCoord is Vector2 uv)
+        {
+            GUI.Label(new Rect(0, 0, 500, 200), $"{Input.mousePosition}, {uv.x}, {uv.y}, {hit.collider is MeshCollider}");
+
+            //cursorTarget = hit.point;
+            //DrawCircle(texture, uv * new Vector2(texture.width, texture.height), penRadius, currentColor);
+            //texture.Apply();
+        }
+
         if (GUI.Button(new Rect(0, 20, 100, 20), "Save Design"))
         {
             string filename = EditorUtility.SaveFilePanel("Save Design", Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "design", "png");
             File.WriteAllBytes(filename, texture.EncodeToPNG());
         }
-    }
 
+    }
 #endif
 }

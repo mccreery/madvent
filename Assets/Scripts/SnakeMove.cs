@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class SnakeMove : MonoBehaviour
 {
-	public List<Transform> reindeerTrail = new List<Transform>();
+    public List<Transform> reindeerTrail = new List<Transform>();
 
     public Vector2Int boardMinXY;
     public Vector2Int boardMaxXY;
@@ -49,23 +49,23 @@ public class SnakeMove : MonoBehaviour
 
     void Control()
     {
-		if (Input.GetAxisRaw("Horizontal") > 0.5)
-		{
-			moveDirection = Vector2.right;
-		}
-		else if (Input.GetAxisRaw("Horizontal") < -0.5)
-		{
-			moveDirection = Vector2.left;
-		}
-		else if (Input.GetAxisRaw("Vertical") > 0.5)
-		{
-			moveDirection = Vector2.up;
-		}
-		else if (Input.GetAxisRaw("Vertical") < -0.5)
-		{
-			moveDirection = Vector2.down;
-		}
-      
+        if (Input.GetAxisRaw("Horizontal") > 0.5)
+        {
+            moveDirection = Vector2.right;
+        }
+        else if (Input.GetAxisRaw("Horizontal") < -0.5)
+        {
+            moveDirection = Vector2.left;
+        }
+        else if (Input.GetAxisRaw("Vertical") > 0.5)
+        {
+            moveDirection = Vector2.up;
+        }
+        else if (Input.GetAxisRaw("Vertical") < -0.5)
+        {
+            moveDirection = Vector2.down;
+        }
+
 
         if (moveDirection == -(Vector2)firstReindeer.right)
         {
@@ -89,7 +89,7 @@ public class SnakeMove : MonoBehaviour
         firstReindeer.right = moveDirection;
         firstReindeer.position += firstReindeer.right * stepSize;
 
-        if (firstReindeer.position.x > boardMaxXY.x  || firstReindeer.position.y > boardMaxXY.y)
+        if (firstReindeer.position.x > boardMaxXY.x || firstReindeer.position.y > boardMaxXY.y)
         {
             Die();
         }
@@ -131,9 +131,19 @@ public class SnakeMove : MonoBehaviour
     {
         if (reindeerTrail.Count == 10)
         {
-            winText.SetActive(true);
-            gameManager.score++;
-            SceneManager.LoadScene(1);
+            StartCoroutine(WinText());
         }
+    }
+
+    private IEnumerator WinText()
+    {
+        winText.SetActive(true);
+
+        Time.timeScale = 0;
+        yield return new WaitForSecondsRealtime(3);
+        Time.timeScale = 1;
+
+        gameManager.score++;
+        SceneManager.LoadScene(1);
     }
 }

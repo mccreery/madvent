@@ -1420,7 +1420,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseMaterial: {fileID: 2100000, guid: 5ae631b574dae2b499ba13a665933c74, type: 2}
   renderer: {fileID: 1547536507}
-  initialDesign: {fileID: 2800000, guid: 20460609a2354be4a93f5a74f462430a, type: 3}
+  designs:
+  - {fileID: 2800000, guid: e5503a65d03a46d45989dd04032ed0ae, type: 3}
+  - {fileID: 2800000, guid: 309063de78b8b2f41845121e95ffe900, type: 3}
+  - {fileID: 2800000, guid: 219adcaa34b806842b194cc35cd8cee1, type: 3}
+  - {fileID: 2800000, guid: 8d8a72df952e6b040aedafae638e745f, type: 3}
+  - {fileID: 2800000, guid: 56de9358fe84ebf4e9b522e960c2b3f7, type: 3}
+  - {fileID: 2800000, guid: 62135ed5fd18e6c4e9ff48887b8b75eb, type: 3}
+  - {fileID: 2800000, guid: 43fd1cc78e6180e4d997160a9db9bc2d, type: 3}
 --- !u!1 &1559105325
 GameObject:
   m_ObjectHideFlags: 0
