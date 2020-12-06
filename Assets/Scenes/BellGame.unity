@@ -286,7 +286,6 @@ MonoBehaviour:
   - {fileID: 1537794084}
   - {fileID: 1354057417}
   - {fileID: 1193499721}
-  Score: 0
   TimeInterval: 0.75
 --- !u!4 &462128864
 Transform:
@@ -1108,7 +1107,7 @@ Terrain:
   m_DrawInstanced: 0
   m_DrawTreesAndFoliage: 1
   m_ReflectionProbeUsage: 1
-  m_MaterialTemplate: {fileID: 10652, guid: 0000000000000000f000000000000000, type: 0}
+  m_MaterialTemplate: {fileID: 2100000, guid: e1214a736251f424c8925b1e6150835f, type: 2}
   m_BakeLightProbesForTrees: 1
   m_PreserveTreePrototypeLayers: 0
   m_DeringLightProbesForTrees: 1
