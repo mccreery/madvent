@@ -16,12 +16,11 @@ public class BellSequencer : MonoBehaviour {
   /// <summary>
   /// The current sequence of bells.
   /// </summary>
-  public List<Bell> CurrentSequence;
+  public Queue<Bell> CurrentSequence;
   /// <summary>
-  /// The last bell in the sequence.
+  /// The current bell in the suquence to be matched.
   /// </summary>
-  public Bell Last =>
-    CurrentSequence[CurrentSequence.Count - 1];
+  public Bell CurrentBell => CurrentSequence.Peek();
 
   void Start() {
     NewSequence();
@@ -29,14 +28,18 @@ public class BellSequencer : MonoBehaviour {
   }
 
   public void Success() {
-    Last.GetComponent<Bell>().Ring();
+    CurrentBell.GetComponent<Bell>().Ring();
 
-    CurrentSequence.RemoveAt(CurrentSequence.Count - 1);
+    CurrentSequence.Dequeue();
   }
 
   public void Fail() {
     // Play the failure sound.
     GetComponent<AudioSource>().Play();
+
+    foreach (var bell in Bells) {
+      bell.Shake();
+    }
 
     NewSequence();
     StartCoroutine(RingBells(CurrentSequence, 1.5f));
@@ -44,12 +47,12 @@ public class BellSequencer : MonoBehaviour {
 
   public void NewSequence() => CurrentSequence = GenerateSequence(5);
 
-  List<Bell> GenerateSequence(int length) {
-    var sequence = new List<Bell>();
+  Queue<Bell> GenerateSequence(int length) {
+    var sequence = new Queue<Bell>();
 
     for (int i = 0; i < length; i++) {
       int j = Random.Range(0, Bells.Length);
-      sequence.Add(Bells[j]);
+      sequence.Enqueue(Bells[j]);
     }
 
     return sequence;
