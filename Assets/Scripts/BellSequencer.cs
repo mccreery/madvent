@@ -10,11 +10,6 @@ public class BellSequencer : MonoBehaviour {
   public Bell[] Bells;
 
   /// <summary>
-  /// The player's score.
-  /// </summary>
-  public int Score = 0;
-
-  /// <summary>
   /// The bell in the sequence that must be clicked.
   /// </summary>
   public Bell RequiredBell => currentSequence.Peek();
@@ -47,7 +42,7 @@ public class BellSequencer : MonoBehaviour {
     currentSequence.Dequeue();
 
     if (currentSequence.Count == 0) {
-      Score++;
+      GameObject.Find("Bell Scoreboard").GetComponent<Scoreboard>().Score++;
       CreateNewSequence();
     }
   }
