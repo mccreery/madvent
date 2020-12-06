@@ -43,7 +43,7 @@ public class BellSequencer : MonoBehaviour {
 
     if (currentSequence.Count == 0) {
       GameObject.Find("Bell Scoreboard").GetComponent<Scoreboard>().Score++;
-      CreateNewSequence();
+      CreateNewSequence(1.5f);
     }
   }
 
