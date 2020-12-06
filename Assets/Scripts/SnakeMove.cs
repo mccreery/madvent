@@ -29,6 +29,7 @@ public class SnakeMove : MonoBehaviour
     void Awake()
     {
         firstReindeer = reindeerTrail[0];
+        winText.SetActive(false);
     }
 
     // Update is called once per frame
@@ -122,11 +123,13 @@ public class SnakeMove : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
+    public GameObject winText;
+
     public void Win()
     {
         if (reindeerTrail.Count == 10)
         {
-            SceneManager.LoadScene(0);
+            winText.SetActive(true);
         }
     }
 }
