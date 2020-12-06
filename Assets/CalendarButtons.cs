@@ -32,7 +32,7 @@ public class CalendarButtons : MonoBehaviour
             button.GetComponentInChildren<Text>().text = (i + 1).ToString();
 
             Button buttonButton = button.GetComponentInChildren<Button>();
-            buttonButton.enabled = i <= gameManager.day;
+            buttonButton.enabled = i == gameManager.day;
             buttonButton.onClick.AddListener(() =>
             {
                 gameManager.day = i + 1;

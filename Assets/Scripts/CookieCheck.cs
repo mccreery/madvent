@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class CookieCheck : MonoBehaviour
@@ -54,7 +55,16 @@ public class CookieCheck : MonoBehaviour
             float delay = Mathf.Lerp(minScoreDelay, maxScoreDelay, score);
             yield return new WaitForSeconds(delay);
         }
+
+        yield return new WaitForSeconds(3);
+        if (score > 0.7f)
+        {
+            gameManager.score++;
+        }
+        SceneManager.LoadScene(1);
     }
+
+    public GameManager gameManager;
 
     public float CalculateScore()
     {

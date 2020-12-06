@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BellSequencer : MonoBehaviour {
   /// <summary>
@@ -45,7 +46,12 @@ public class BellSequencer : MonoBehaviour {
       GameObject.Find("Bell Scoreboard").GetComponent<Scoreboard>().Score++;
       CreateNewSequence(1.5f);
     }
+
+        gameManager.score++;
+        SceneManager.LoadScene(1);
   }
+
+    public GameManager gameManager;
 
   public void Fail() {
     if (displaying) {
@@ -60,7 +66,13 @@ public class BellSequencer : MonoBehaviour {
     }
 
     CreateNewSequence(1.5f);
-  }
+        InvokeRepeating("FailReload", 2, 0);
+    }
+
+    void FailReload()
+    {
+        SceneManager.LoadScene(1);
+    }
 
   public void CreateNewSequence(float delay = 0) {
     displaying = true;

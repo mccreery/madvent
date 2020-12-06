@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CardManager : MonoBehaviour
 {
@@ -17,8 +19,28 @@ public class CardManager : MonoBehaviour
 
     public GameObject cardPrefab;
 
+    public int maxLives;
+
+    public TextMeshProUGUI livesText;
+
+    private int lives;
+    private int Lives
+    {
+        get => lives;
+        set
+        {
+            lives = value;
+            if (livesText != null)
+            {
+                livesText.text = $"Lives: {lives}";
+            }
+        }
+    }
+
     private void Start()
     {
+        Lives = maxLives;
+
         var giftsList = new List<Sprite>();
         giftsList.AddRange(gifts);
         giftsList.AddRange(gifts);
@@ -41,6 +63,9 @@ public class CardManager : MonoBehaviour
     }
 
     Card lastFlipped;
+    private int score = 0;
+
+    public GameManager gameManager;
 
     public void OnCardFlipped(Card card)
     {
@@ -52,7 +77,12 @@ public class CardManager : MonoBehaviour
         {
             if (lastFlipped.GiftSprite == card.GiftSprite)
             {
-                // good
+                ++score;
+                if (score == gifts.Length)
+                {
+                    ++gameManager.score;
+                    SceneManager.LoadScene(1);
+                }
             }
             else
             {
@@ -66,6 +96,12 @@ public class CardManager : MonoBehaviour
     {
         yield return new WaitUntil(() => b.FlipFinished);
         yield return new WaitForSeconds(0.5f);
+
+        --Lives;
+        if (Lives <= 0)
+        {
+            SceneManager.LoadScene(1);
+        }
 
         a.Reset();
         b.Reset();

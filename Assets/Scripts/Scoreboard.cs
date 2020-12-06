@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Scoreboard : MonoBehaviour {
@@ -7,9 +8,18 @@ public class Scoreboard : MonoBehaviour {
     get => score;
     set {
       score = value;
+
+            if (score == 5)
+            {
+                gameManager.score++;
+                SceneManager.LoadScene(1);
+            }
+
       UpdateText();
     }
   }
+
+    public GameManager gameManager;
 
   private void Start() {
     UpdateText();

@@ -45,6 +45,8 @@ public class SnakeMove : MonoBehaviour
         timeSinceLastStep += Time.deltaTime;
     }
 
+    public GameManager gameManager;
+
     void Control()
     {
 		if (Input.GetAxisRaw("Horizontal") > 0.5)
@@ -120,7 +122,7 @@ public class SnakeMove : MonoBehaviour
 
     public void Die()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
     public GameObject winText;
@@ -130,6 +132,8 @@ public class SnakeMove : MonoBehaviour
         if (reindeerTrail.Count == 10)
         {
             winText.SetActive(true);
+            gameManager.score++;
+            SceneManager.LoadScene(1);
         }
     }
 }

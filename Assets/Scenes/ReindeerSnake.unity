@@ -407,6 +407,8 @@ MonoBehaviour:
   interval: 0.5
   stepSize: 1
   timeSinceLastStep: 0
+  gameManager: {fileID: 11400000, guid: e8a38e325cd4d1d4290bc98b565ddd69, type: 2}
+  winText: {fileID: 2041293015}
 --- !u!4 &1263815884
 Transform:
   m_ObjectHideFlags: 0
