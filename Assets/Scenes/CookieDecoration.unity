@@ -1421,13 +1421,14 @@ MonoBehaviour:
   baseMaterial: {fileID: 2100000, guid: 5ae631b574dae2b499ba13a665933c74, type: 2}
   renderer: {fileID: 1547536507}
   designs:
-  - {fileID: 2800000, guid: e5503a65d03a46d45989dd04032ed0ae, type: 3}
-  - {fileID: 2800000, guid: 309063de78b8b2f41845121e95ffe900, type: 3}
-  - {fileID: 2800000, guid: 219adcaa34b806842b194cc35cd8cee1, type: 3}
-  - {fileID: 2800000, guid: 8d8a72df952e6b040aedafae638e745f, type: 3}
-  - {fileID: 2800000, guid: 56de9358fe84ebf4e9b522e960c2b3f7, type: 3}
-  - {fileID: 2800000, guid: 62135ed5fd18e6c4e9ff48887b8b75eb, type: 3}
-  - {fileID: 2800000, guid: 43fd1cc78e6180e4d997160a9db9bc2d, type: 3}
+  - {fileID: 2800000, guid: bafd680e0787ffd478c44d8407f8310d, type: 3}
+  - {fileID: 2800000, guid: 06da981ce9c2e294d9079206de44b514, type: 3}
+  - {fileID: 2800000, guid: 3463cd2e3a986fb48ab945f4a80d558f, type: 3}
+  - {fileID: 2800000, guid: 820216919e7c4b14b9b69a902f86b766, type: 3}
+  - {fileID: 2800000, guid: d1632a6b28a8cae40a77eef9fc6d6ae0, type: 3}
+  - {fileID: 2800000, guid: 716835b55a0b66a4e83ca0654edcd930, type: 3}
+  - {fileID: 2800000, guid: bfd235c98d1a42b4b96fb8b24d13920c, type: 3}
+  - {fileID: 2800000, guid: dfddb22c043710645b24b4ca07fcb4a2, type: 3}
 --- !u!1 &1559105325
 GameObject:
   m_ObjectHideFlags: 0
@@ -2186,7 +2187,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   draw: {fileID: 498159981}
   target: {fileID: 2800000, guid: 20460609a2354be4a93f5a74f462430a, type: 3}
-  maxError: 0.04
+  maxError: 0.2
   ui: {fileID: 1761581036}
   percentageText: {fileID: 1225836894}
   minScoreDelay: 0.01
