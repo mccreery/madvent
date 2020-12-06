@@ -4,5 +4,26 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Preload.unity
+    guid: 08e6d703637162041b3d40d0ecfb7773
+  - enabled: 1
+    path: Assets/Scenes/CalendarMenu.unity
+    guid: 0786a2cc687e4de4090e7e5b8728c9b3
+  - enabled: 1
+    path: Assets/Scenes/BellGame.unity
+    guid: 5cc841b407061b34cbda0a1d4fe333df
+  - enabled: 1
+    path: Assets/Scenes/CardMatch.unity
+    guid: d5c372795c185d0458ce383eac75b16a
+  - enabled: 1
+    path: Assets/Scenes/CookieDecoration.unity
+    guid: 7fcf1b39b25ea274b89892f83a465d1f
+  - enabled: 1
+    path: Assets/Scenes/ReindeerSnake.unity
+    guid: abe7b466c9aedc74793e35619c7fbda3
+  - enabled: 1
+    path: Assets/Scenes/SnowballFight.unity
+    guid: 8d36186622489dd49a58c5a882a17310
   m_configObjects: {}

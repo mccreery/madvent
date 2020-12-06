@@ -1,11 +1,18 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class CalendarButtons : MonoBehaviour
 {
     public GameObject buttonPrefab;
     public GameObject[] days = new GameObject[24];
+
+    public Sprite[] doors;
+
+    public int[] dayToLevel;
+
+    public GameManager gameManager;
 
     private void Start()
     {
@@ -18,26 +25,22 @@ public class CalendarButtons : MonoBehaviour
 
         foreach (int i in dayNumbers)
         {
-            if (days[i] != null) days[i].SetActive(false);
-
             GameObject button = Instantiate(buttonPrefab, transform);
-            button.GetComponentInChildren<Text>().text = (i + 1).ToString();
-            button.GetComponentInChildren<Button>().onClick.AddListener(() => CurrentDay = i);
-        }
-    }
 
-    private int currentDay;
-    public int CurrentDay
-    {
-        get => currentDay;
-        set
-        {
-            currentDay = value;
-            for (int i = 0; i < 24; i++)
+            button.GetComponentInChildren<Image>().sprite = doors[Random.Range(0, doors.Length)];
+
+            button.GetComponentInChildren<Text>().text = (i + 1).ToString();
+
+            Button buttonButton = button.GetComponentInChildren<Button>();
+            buttonButton.enabled = i <= gameManager.day;
+            buttonButton.onClick.AddListener(() =>
             {
-                if (days[i] != null) days[i].SetActive(i == currentDay);
-            }
+                gameManager.day = i + 1;
+                SceneManager.LoadScene(dayToLevel[i]);
+            });
         }
+
+        // todo if i == 24 show score
     }
 
     public static void Shuffle<T>(IList<T> list)
