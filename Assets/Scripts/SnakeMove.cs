@@ -12,6 +12,8 @@ public class SnakeMove : MonoBehaviour
     [HideInInspector]
     public float timeSinceLastStep = 0f;
 
+    public Vector2 HeadPosition => firstReindeer.position;
+
     Vector2 moveDirection = Vector2.right;
 
     private Transform firstReindeer;
