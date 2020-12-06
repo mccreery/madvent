@@ -2,13 +2,14 @@
 
 [RequireComponent(typeof(AudioSource))]
 public class Bell : MonoBehaviour {
-  private readonly float ringForce = -0.05f;
+  /// <summary>
+  /// The amount of force to exert on the bell when ringing it.
+  /// </summary>
+  readonly float ringForce = -0.05f;
 
   public void Ring() {
     Shake();
-
-    var audioSource = GetComponent<AudioSource>();
-    audioSource.Play();
+    GetComponent<AudioSource>().Play();
   }
 
   public void Shake() =>
@@ -19,7 +20,7 @@ public class Bell : MonoBehaviour {
   void OnMouseDown() {
     var sequencer = GameObject.Find("Sequencer").GetComponent<BellSequencer>();
 
-    if (gameObject == sequencer.CurrentBell.gameObject) {
+    if (gameObject == sequencer.RequiredBell.gameObject) {
       sequencer.Success();
     } else {
       sequencer.Fail();

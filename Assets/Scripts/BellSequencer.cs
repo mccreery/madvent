@@ -5,35 +5,58 @@ using UnityEngine;
 
 public class BellSequencer : MonoBehaviour {
   /// <summary>
-  /// The available bells to ring.
+  /// The bells to ring in a sequence.
   /// </summary>
   public Bell[] Bells;
+
   /// <summary>
-  /// The time interval between bell rings.
+  /// The player's score.
+  /// </summary>
+  public int Score = 0;
+
+  /// <summary>
+  /// The bell in the sequence that must be clicked.
+  /// </summary>
+  public Bell RequiredBell => currentSequence.Peek();
+
+  /// <summary>
+  /// The time interval between successive bell rings.
   /// </summary>
   public float TimeInterval = 0.75f;
 
   /// <summary>
   /// The current sequence of bells.
   /// </summary>
-  public Queue<Bell> CurrentSequence;
+  Queue<Bell> currentSequence;
+
   /// <summary>
-  /// The current bell in the suquence to be matched.
+  /// Whether the sequence is being displayed or not.
   /// </summary>
-  public Bell CurrentBell => CurrentSequence.Peek();
+  bool displaying = false;
 
   void Start() {
-    NewSequence();
-    StartCoroutine(RingBells(CurrentSequence));
+    CreateNewSequence();
   }
 
   public void Success() {
-    CurrentBell.GetComponent<Bell>().Ring();
+    if (displaying) {
+      return;
+    }
 
-    CurrentSequence.Dequeue();
+    RequiredBell.GetComponent<Bell>().Ring();
+    currentSequence.Dequeue();
+
+    if (currentSequence.Count == 0) {
+      Score++;
+      CreateNewSequence();
+    }
   }
 
   public void Fail() {
+    if (displaying) {
+      return;
+    }
+
     // Play the failure sound.
     GetComponent<AudioSource>().Play();
 
@@ -41,11 +64,15 @@ public class BellSequencer : MonoBehaviour {
       bell.Shake();
     }
 
-    NewSequence();
-    StartCoroutine(RingBells(CurrentSequence, 1.5f));
+    CreateNewSequence(1.5f);
   }
 
-  public void NewSequence() => CurrentSequence = GenerateSequence(5);
+  public void CreateNewSequence(float delay = 0) {
+    displaying = true;
+
+    currentSequence = GenerateSequence(5);
+    StartCoroutine(RingBells(currentSequence, delay));
+  }
 
   Queue<Bell> GenerateSequence(int length) {
     var sequence = new Queue<Bell>();
@@ -58,12 +85,14 @@ public class BellSequencer : MonoBehaviour {
     return sequence;
   }
 
-  IEnumerator RingBells(IEnumerable<Bell> bells, float delay = 0) {
+  IEnumerator RingBells(IEnumerable<Bell> bells, float delay) {
     yield return new WaitForSeconds(delay);
 
     foreach (var bell in bells) {
       bell.Ring();
       yield return new WaitForSeconds(TimeInterval);
     }
+
+    displaying = false;
   }
 }
