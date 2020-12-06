@@ -131,16 +131,41 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 515479024815237035, guid: 54586d0cfbcd87d4598974ef218327e2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 766367882735282768, guid: 54586d0cfbcd87d4598974ef218327e2,
         type: 3}
       propertyPath: m_Name
       value: Handbell C4
+      objectReference: {fileID: 0}
+    - target: {fileID: 766367882735282768, guid: 54586d0cfbcd87d4598974ef218327e2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3138749875813634602, guid: 54586d0cfbcd87d4598974ef218327e2,
         type: 3}
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: a1206a87037779845b4c37b7286825cb, type: 3}
+    - target: {fileID: 3811472647253709832, guid: 54586d0cfbcd87d4598974ef218327e2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5772632872089152009, guid: 54586d0cfbcd87d4598974ef218327e2,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5772632872089152009, guid: 54586d0cfbcd87d4598974ef218327e2,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 6047548109199288443, guid: 54586d0cfbcd87d4598974ef218327e2,
         type: 3}
       propertyPath: m_RootOrder
@@ -148,13 +173,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6047548109199288443, guid: 54586d0cfbcd87d4598974ef218327e2,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.025
+      objectReference: {fileID: 0}
+    - target: {fileID: 6047548109199288443, guid: 54586d0cfbcd87d4598974ef218327e2,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.025
+      objectReference: {fileID: 0}
+    - target: {fileID: 6047548109199288443, guid: 54586d0cfbcd87d4598974ef218327e2,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.025
+      objectReference: {fileID: 0}
+    - target: {fileID: 6047548109199288443, guid: 54586d0cfbcd87d4598974ef218327e2,
+        type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 6047548109199288443, guid: 54586d0cfbcd87d4598974ef218327e2,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 6047548109199288443, guid: 54586d0cfbcd87d4598974ef218327e2,
         type: 3}
@@ -435,7 +475,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 578256260}
   m_LocalRotation: {x: 0.04572316, y: -0, z: -0, w: 0.9989542}
-  m_LocalPosition: {x: 0, y: 10, z: -15}
+  m_LocalPosition: {x: 0, y: 0.3, z: -0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -448,16 +488,41 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 515479024815237035, guid: 54586d0cfbcd87d4598974ef218327e2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 766367882735282768, guid: 54586d0cfbcd87d4598974ef218327e2,
         type: 3}
       propertyPath: m_Name
       value: Handbell B4
+      objectReference: {fileID: 0}
+    - target: {fileID: 766367882735282768, guid: 54586d0cfbcd87d4598974ef218327e2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3138749875813634602, guid: 54586d0cfbcd87d4598974ef218327e2,
         type: 3}
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 2467e0a6f55913e42a702cbc78f3265f, type: 3}
+    - target: {fileID: 3811472647253709832, guid: 54586d0cfbcd87d4598974ef218327e2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5772632872089152009, guid: 54586d0cfbcd87d4598974ef218327e2,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5772632872089152009, guid: 54586d0cfbcd87d4598974ef218327e2,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 6047548109199288443, guid: 54586d0cfbcd87d4598974ef218327e2,
         type: 3}
       propertyPath: m_RootOrder
@@ -465,13 +530,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6047548109199288443, guid: 54586d0cfbcd87d4598974ef218327e2,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.025
+      objectReference: {fileID: 0}
+    - target: {fileID: 6047548109199288443, guid: 54586d0cfbcd87d4598974ef218327e2,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.025
+      objectReference: {fileID: 0}
+    - target: {fileID: 6047548109199288443, guid: 54586d0cfbcd87d4598974ef218327e2,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.025
+      objectReference: {fileID: 0}
+    - target: {fileID: 6047548109199288443, guid: 54586d0cfbcd87d4598974ef218327e2,
+        type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 6047548109199288443, guid: 54586d0cfbcd87d4598974ef218327e2,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 6047548109199288443, guid: 54586d0cfbcd87d4598974ef218327e2,
         type: 3}
@@ -522,20 +602,60 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 515479024815237035, guid: 54586d0cfbcd87d4598974ef218327e2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 766367882735282768, guid: 54586d0cfbcd87d4598974ef218327e2,
         type: 3}
       propertyPath: m_Name
       value: Handbell A4
+      objectReference: {fileID: 0}
+    - target: {fileID: 766367882735282768, guid: 54586d0cfbcd87d4598974ef218327e2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3138749875813634602, guid: 54586d0cfbcd87d4598974ef218327e2,
         type: 3}
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 52a9e5e666088d542bd4f385c82c888e, type: 3}
+    - target: {fileID: 3811472647253709832, guid: 54586d0cfbcd87d4598974ef218327e2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5772632872089152009, guid: 54586d0cfbcd87d4598974ef218327e2,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5772632872089152009, guid: 54586d0cfbcd87d4598974ef218327e2,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 6047548109199288443, guid: 54586d0cfbcd87d4598974ef218327e2,
         type: 3}
       propertyPath: m_RootOrder
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6047548109199288443, guid: 54586d0cfbcd87d4598974ef218327e2,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.025
+      objectReference: {fileID: 0}
+    - target: {fileID: 6047548109199288443, guid: 54586d0cfbcd87d4598974ef218327e2,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.025
+      objectReference: {fileID: 0}
+    - target: {fileID: 6047548109199288443, guid: 54586d0cfbcd87d4598974ef218327e2,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.025
       objectReference: {fileID: 0}
     - target: {fileID: 6047548109199288443, guid: 54586d0cfbcd87d4598974ef218327e2,
         type: 3}
@@ -545,7 +665,7 @@ PrefabInstance:
     - target: {fileID: 6047548109199288443, guid: 54586d0cfbcd87d4598974ef218327e2,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 6047548109199288443, guid: 54586d0cfbcd87d4598974ef218327e2,
         type: 3}
@@ -596,16 +716,41 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 515479024815237035, guid: 54586d0cfbcd87d4598974ef218327e2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 766367882735282768, guid: 54586d0cfbcd87d4598974ef218327e2,
         type: 3}
       propertyPath: m_Name
       value: Handbell G3
+      objectReference: {fileID: 0}
+    - target: {fileID: 766367882735282768, guid: 54586d0cfbcd87d4598974ef218327e2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3138749875813634602, guid: 54586d0cfbcd87d4598974ef218327e2,
         type: 3}
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 05ca1d31739869a43ad6d1c5cbe2f46b, type: 3}
+    - target: {fileID: 3811472647253709832, guid: 54586d0cfbcd87d4598974ef218327e2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5772632872089152009, guid: 54586d0cfbcd87d4598974ef218327e2,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: -0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5772632872089152009, guid: 54586d0cfbcd87d4598974ef218327e2,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 6047548109199288443, guid: 54586d0cfbcd87d4598974ef218327e2,
         type: 3}
       propertyPath: m_RootOrder
@@ -613,13 +758,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6047548109199288443, guid: 54586d0cfbcd87d4598974ef218327e2,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.025
+      objectReference: {fileID: 0}
+    - target: {fileID: 6047548109199288443, guid: 54586d0cfbcd87d4598974ef218327e2,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.025
+      objectReference: {fileID: 0}
+    - target: {fileID: 6047548109199288443, guid: 54586d0cfbcd87d4598974ef218327e2,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.025
+      objectReference: {fileID: 0}
+    - target: {fileID: 6047548109199288443, guid: 54586d0cfbcd87d4598974ef218327e2,
+        type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5
+      value: -0.2
       objectReference: {fileID: 0}
     - target: {fileID: 6047548109199288443, guid: 54586d0cfbcd87d4598974ef218327e2,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 6047548109199288443, guid: 54586d0cfbcd87d4598974ef218327e2,
         type: 3}
@@ -886,10 +1046,46 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 515479024815237035, guid: 54586d0cfbcd87d4598974ef218327e2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 766367882735282768, guid: 54586d0cfbcd87d4598974ef218327e2,
         type: 3}
       propertyPath: m_Name
       value: Handbell F3
+      objectReference: {fileID: 0}
+    - target: {fileID: 766367882735282768, guid: 54586d0cfbcd87d4598974ef218327e2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 970343249406736185, guid: 54586d0cfbcd87d4598974ef218327e2,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -908763526085698638, guid: 2ff459635c169ff45a279b6963c6f90b,
+        type: 3}
+    - target: {fileID: 970343249406736185, guid: 54586d0cfbcd87d4598974ef218327e2,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3811472647253709832, guid: 54586d0cfbcd87d4598974ef218327e2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5772632872089152009, guid: 54586d0cfbcd87d4598974ef218327e2,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: -0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5772632872089152009, guid: 54586d0cfbcd87d4598974ef218327e2,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 6047548109199288443, guid: 54586d0cfbcd87d4598974ef218327e2,
         type: 3}
@@ -898,13 +1094,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6047548109199288443, guid: 54586d0cfbcd87d4598974ef218327e2,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.025
+      objectReference: {fileID: 0}
+    - target: {fileID: 6047548109199288443, guid: 54586d0cfbcd87d4598974ef218327e2,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.025
+      objectReference: {fileID: 0}
+    - target: {fileID: 6047548109199288443, guid: 54586d0cfbcd87d4598974ef218327e2,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.025
+      objectReference: {fileID: 0}
+    - target: {fileID: 6047548109199288443, guid: 54586d0cfbcd87d4598974ef218327e2,
+        type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10
+      value: -0.4
       objectReference: {fileID: 0}
     - target: {fileID: 6047548109199288443, guid: 54586d0cfbcd87d4598974ef218327e2,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 6047548109199288443, guid: 54586d0cfbcd87d4598974ef218327e2,
         type: 3}

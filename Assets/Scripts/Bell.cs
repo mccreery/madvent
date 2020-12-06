@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
-public class BellRinger : MonoBehaviour {
+public class Bell : MonoBehaviour {
   public void Ring() {
     var audioSource = GetComponent<AudioSource>();
     audioSource.Play();
@@ -10,7 +10,8 @@ public class BellRinger : MonoBehaviour {
   void OnMouseDown() {
     var sequencer = GameObject.Find("Sequencer").GetComponent<BellSequencer>();
 
-    if (gameObject == sequencer.Last) {
+    GetComponent<Rigidbody>().AddTorque(new Vector3(-0.05f, 0, 0), ForceMode.Impulse);
+    if (gameObject == sequencer.Last.gameObject) {
       sequencer.Success();
     } else {
       sequencer.Fail();

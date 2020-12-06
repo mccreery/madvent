@@ -7,7 +7,7 @@ public class BellSequencer : MonoBehaviour {
   /// <summary>
   /// The available bells to ring.
   /// </summary>
-  public BellRinger[] Bells;
+  public Bell[] Bells;
   /// <summary>
   /// The time interval between bell rings.
   /// </summary>
@@ -16,12 +16,12 @@ public class BellSequencer : MonoBehaviour {
   /// <summary>
   /// The current sequence of bells.
   /// </summary>
-  public List<GameObject> CurrentSequence;
+  public List<Bell> CurrentSequence;
   /// <summary>
   /// The last bell in the sequence.
   /// </summary>
-  public GameObject Last =>
-    CurrentSequence[CurrentSequence.Count - 1].gameObject;
+  public Bell Last =>
+    CurrentSequence[CurrentSequence.Count - 1];
 
   void Start() {
     NewSequence();
@@ -29,7 +29,7 @@ public class BellSequencer : MonoBehaviour {
   }
 
   public void Success() {
-    Last.GetComponent<BellRinger>().Ring();
+    Last.GetComponent<Bell>().Ring();
 
     CurrentSequence.RemoveAt(CurrentSequence.Count - 1);
   }
@@ -44,22 +44,22 @@ public class BellSequencer : MonoBehaviour {
 
   public void NewSequence() => CurrentSequence = GenerateSequence(5);
 
-  List<GameObject> GenerateSequence(int length) {
-    var sequence = new List<GameObject>();
+  List<Bell> GenerateSequence(int length) {
+    var sequence = new List<Bell>();
 
     for (int i = 0; i < length; i++) {
       int j = Random.Range(0, Bells.Length);
-      sequence.Add(Bells[j].gameObject);
+      sequence.Add(Bells[j]);
     }
 
     return sequence;
   }
 
-  IEnumerator RingBells(IEnumerable<GameObject> bells, float delay = 0) {
+  IEnumerator RingBells(IEnumerable<Bell> bells, float delay = 0) {
     yield return new WaitForSeconds(delay);
 
     foreach (var bell in bells) {
-      bell.GetComponent<BellRinger>().Ring();
+      bell.Ring();
       yield return new WaitForSeconds(TimeInterval);
     }
   }

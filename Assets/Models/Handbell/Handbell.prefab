@@ -1,5 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!64 &3098283151472313525
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 515479024815237035}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -908763526085698638, guid: 2ff459635c169ff45a279b6963c6f90b, type: 3}
 --- !u!1 &766367882735282768
 GameObject:
   m_ObjectHideFlags: 0
@@ -9,7 +23,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6047548109199288443}
-  - component: {fileID: 970343249406736185}
+  - component: {fileID: 1451119151064139624}
+  - component: {fileID: 5772632872089152009}
   - component: {fileID: 3138749875813634602}
   - component: {fileID: 908089060895838245}
   m_Layer: 0
@@ -17,7 +32,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &6047548109199288443
 Transform:
@@ -34,20 +49,57 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &970343249406736185
-MeshCollider:
+--- !u!54 &1451119151064139624
+Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 766367882735282768}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -908763526085698638, guid: 2ff459635c169ff45a279b6963c6f90b, type: 3}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 2.5
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!59 &5772632872089152009
+HingeJoint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 766367882735282768}
+  m_ConnectedBody: {fileID: 0}
+  m_Anchor: {x: 0, y: 4, z: 0}
+  m_Axis: {x: 1, y: 0, z: 0}
+  m_AutoConfigureConnectedAnchor: 1
+  m_ConnectedAnchor: {x: 0, y: 4, z: 0}
+  m_UseSpring: 0
+  m_Spring:
+    spring: 0
+    damper: 0
+    targetPosition: 0
+  m_UseMotor: 0
+  m_Motor:
+    targetVelocity: 0
+    force: 0
+    freeSpin: 0
+  m_UseLimits: 1
+  m_Limits:
+    min: -50
+    max: 50
+    bounciness: 0
+    bounceMinVelocity: 0.2
+    contactDistance: 0
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_EnableCollision: 0
+  m_EnablePreprocessing: 1
+  m_MassScale: 1
+  m_ConnectedMassScale: 1
 --- !u!82 &3138749875813634602
 AudioSource:
   m_ObjectHideFlags: 0
@@ -231,7 +283,7 @@ PrefabInstance:
     - target: {fileID: -4682861196437156110, guid: 2ff459635c169ff45a279b6963c6f90b,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 2ff459635c169ff45a279b6963c6f90b,
         type: 3}
@@ -241,7 +293,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 2ff459635c169ff45a279b6963c6f90b,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8204215276110374429, guid: 2ff459635c169ff45a279b6963c6f90b,
         type: 3}
@@ -250,6 +302,12 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 771323a6be7493e4b8b695872ede5408, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ff459635c169ff45a279b6963c6f90b, type: 3}
+--- !u!1 &515479024815237035 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 2ff459635c169ff45a279b6963c6f90b,
+    type: 3}
+  m_PrefabInstance: {fileID: 857426246157196026}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &895242011340619025 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2ff459635c169ff45a279b6963c6f90b,
