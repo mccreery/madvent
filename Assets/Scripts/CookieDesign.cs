@@ -3,7 +3,7 @@
 public class CookieDesign : MonoBehaviour
 {
     public Material baseMaterial;
-    public MeshRenderer renderer;
+    public new MeshRenderer renderer;
 
     public Texture2D initialDesign;
 
