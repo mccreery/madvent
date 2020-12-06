@@ -45,10 +45,10 @@ public class BellSequencer : MonoBehaviour {
     if (currentSequence.Count == 0) {
       GameObject.Find("Bell Scoreboard").GetComponent<Scoreboard>().Score++;
       CreateNewSequence(1.5f);
-    }
 
-        gameManager.score++;
-        SceneManager.LoadScene(1);
+            gameManager.score++;
+            SceneManager.LoadScene(1);
+        }
   }
 
     public GameManager gameManager;
